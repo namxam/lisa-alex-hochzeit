@@ -874,14 +874,37 @@
 
             sections.forEach(function (s) { activeObs.observe(s); });
 
-            /* --- RSVP form placeholder --- */
+            /* --- RSVP form submission to Google Sheets --- */
             document.getElementById('rsvp-form').addEventListener('submit', function (e) {
                 e.preventDefault();
-                var btn = this.querySelector('.rsvp-submit');
-                btn.textContent = 'Danke für eure Zusage!';
-                btn.style.background = 'var(--olive)';
+                var form = this;
+                var btn = form.querySelector('.rsvp-submit');
+                var originalText = btn.textContent;
+                btn.textContent = 'Wird gesendet\u2026';
                 btn.disabled = true;
-                /* TODO: Connect to Formspree, Netlify Forms, or custom backend */
+
+                var data = {
+                    name: form.name.value,
+                    personen: form.personen.value,
+                    allergien: form.allergien.value,
+                    nachricht: form.nachricht.value
+                };
+
+                fetch('https://script.google.com/macros/s/AKfycbxnbGtv2BtCQCs0LfRGvXhNRj0kHI8ZXSJcijYzHheE3M_RUh0Box1LXXrZ-NYcOy_rRA/exec', {
+                    method: 'POST',
+                    body: JSON.stringify(data)
+                })
+                .then(function () {
+                    btn.textContent = 'Danke f\u00fcr eure Zusage!';
+                    btn.style.background = 'var(--olive)';
+                    form.reset();
+                })
+                .catch(function () {
+                    btn.textContent = 'Fehler \u2013 bitte nochmal versuchen';
+                    btn.style.background = 'var(--terracotta)';
+                    btn.disabled = false;
+                    setTimeout(function () { btn.textContent = originalText; }, 3000);
+                });
             });
         })();
     </script>
