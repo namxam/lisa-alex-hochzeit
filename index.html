@@ -694,27 +694,12 @@
             <div class="timeline stagger">
                 <div class="timeline-item">
                     <p class="timeline-time">14:00 Uhr</p>
-                    <p class="timeline-title">Ankommen &amp; Willkommen</p>
-                    <p class="timeline-note">Details folgen</p>
-                </div>
-                <div class="timeline-item">
-                    <p class="timeline-time">15:00 Uhr</p>
                     <p class="timeline-title">Trauung</p>
-                    <p class="timeline-note">Details folgen</p>
-                </div>
-                <div class="timeline-item">
-                    <p class="timeline-time">16:30 Uhr</p>
-                    <p class="timeline-title">Sektempfang</p>
                     <p class="timeline-note">Details folgen</p>
                 </div>
                 <div class="timeline-item">
                     <p class="timeline-time">18:00 Uhr</p>
                     <p class="timeline-title">Abendessen</p>
-                    <p class="timeline-note">Details folgen</p>
-                </div>
-                <div class="timeline-item">
-                    <p class="timeline-time">Ab 20:00 Uhr</p>
-                    <p class="timeline-title">Feiern &amp; Tanzen</p>
                     <p class="timeline-note">Details folgen</p>
                 </div>
             </div>
@@ -787,8 +772,18 @@
                         <input type="text" id="name" name="name" placeholder="Vor- und Nachname" required autocomplete="name">
                     </div>
                     <div class="form-group">
-                        <label for="personen">Anzahl Personen</label>
-                        <input type="number" id="personen" name="personen" min="1" max="10" placeholder="1" required>
+                        <label for="email">E-Mail</label>
+                        <input type="email" id="email" name="email" placeholder="eure@email.de" required autocomplete="email">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="erwachsene">Erwachsene</label>
+                        <input type="number" id="erwachsene" name="erwachsene" min="1" max="10" placeholder="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kinder">Kinder</label>
+                        <input type="number" id="kinder" name="kinder" min="0" max="10" placeholder="0">
                     </div>
                 </div>
                 <div class="form-group">
@@ -878,12 +873,14 @@
 
                 var data = {
                     name: form.name.value,
-                    personen: form.personen.value,
+                    email: form.email.value,
+                    erwachsene: form.erwachsene.value,
+                    kinder: form.kinder.value || '0',
                     allergien: form.allergien.value,
                     nachricht: form.nachricht.value
                 };
 
-                fetch('https://script.google.com/macros/s/AKfycbxnbGtv2BtCQCs0LfRGvXhNRj0kHI8ZXSJcijYzHheE3M_RUh0Box1LXXrZ-NYcOy_rRA/exec', {
+                fetch('https://script.google.com/macros/s/AKfycbylZj9ixAxYUSrw2Q1CPreIaa7pAaAA3V5eDVz4COvhMhVTkVZjM9dJN3Cn-rHVPUdb5Q/exec', {
                     method: 'POST',
                     body: JSON.stringify(data)
                 })
