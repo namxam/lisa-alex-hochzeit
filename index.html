@@ -281,6 +281,64 @@
             margin-top: 0.15rem;
         }
 
+        .timeline-location {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            color: var(--cream-light);
+            margin-bottom: 1.75rem;
+            padding-left: 0;
+            position: relative;
+        }
+
+        .timeline-location::before {
+            display: none;
+        }
+
+        .timeline-location:not(:first-child) {
+            margin-top: 1rem;
+        }
+
+        /* ============================================
+           SECTION: DIE ORTE
+        ============================================ */
+        .section--orte {
+            background: var(--cream-light);
+            color: var(--text-dark);
+        }
+
+        .orte-grid {
+            display: grid;
+            gap: 1.75rem;
+        }
+
+        .orte-card {
+            background: rgba(240, 230, 208, 0.5);
+            padding: 1.6rem 1.5rem;
+            border-left: 3px solid var(--terracotta);
+        }
+
+        .orte-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 0.35rem;
+        }
+
+        .venue-address {
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.55;
+            margin-bottom: 0.75rem;
+        }
+
+        .orte-card p {
+            font-size: inherit;
+            line-height: 1.65;
+        }
+
         /* ============================================
            SECTION: INFOS
         ============================================ */
@@ -575,6 +633,9 @@
         .stagger--visible > *:nth-child(4) { transition-delay: 0.30s; }
         .stagger--visible > *:nth-child(5) { transition-delay: 0.38s; }
         .stagger--visible > *:nth-child(6) { transition-delay: 0.46s; }
+        .stagger--visible > *:nth-child(7) { transition-delay: 0.54s; }
+        .stagger--visible > *:nth-child(8) { transition-delay: 0.62s; }
+        .stagger--visible > *:nth-child(9) { transition-delay: 0.70s; }
 
         .stagger--visible > * {
             opacity: 1;
@@ -602,6 +663,13 @@
         /* ============================================
            RESPONSIVE
         ============================================ */
+        @media (max-width: 479px) {
+            .nav a {
+                font-size: 0.82rem;
+                padding: 0.38rem 0.52rem;
+            }
+        }
+
         @media (min-width: 480px) {
             .form-row {
                 grid-template-columns: 1fr 1fr;
@@ -663,6 +731,7 @@
     <!-- ========== NAVIGATION ========== -->
     <nav class="nav" id="nav" role="navigation" aria-label="Hauptnavigation">
         <a href="#tag">Unser Tag</a>
+        <a href="#orte">Orte</a>
         <a href="#infos">Infos</a>
         <a href="#hotels">Hotels</a>
         <a href="#rsvp">RSVP</a>
@@ -699,15 +768,71 @@
                 <h2 class="section-heading">Unser Tag</h2>
             </div>
             <div class="timeline stagger">
+                <div class="timeline-location">Dorfkirche Urdenbach</div>
+
                 <div class="timeline-item">
-                    <p class="timeline-time">14:00 Uhr</p>
-                    <p class="timeline-title">Trauung</p>
-                    <p class="timeline-note">Details folgen</p>
+                    <p class="timeline-time">14 Uhr</p>
+                    <p class="timeline-title">Kirchliche Trauung</p>
+                    <p class="timeline-note">Evangelischer Segen mit musikalischen Elementen durch unsere Familie und Freunde</p>
                 </div>
                 <div class="timeline-item">
-                    <p class="timeline-time">18:00 Uhr</p>
-                    <p class="timeline-title">Abendessen</p>
-                    <p class="timeline-note">Details folgen</p>
+                    <p class="timeline-time">15 Uhr</p>
+                    <p class="timeline-title">Fahrt nach Zons</p>
+                    <p class="timeline-note">Wir machen uns direkt im Anschluss auf den Weg nach Zons und bitten alle Gäste, sich eigenständig auf den Weg zu machen. Es bietet sich ein ausgedehnter Spaziergang (ca.&nbsp;60&nbsp;min), die Fahrt mit dem Fahrrad und Fähre (ca.&nbsp;20&nbsp;min) oder mit dem Auto an (ca.&nbsp;30&nbsp;min). Die Wahl des Brautpaars fällt bei geeignetem Wetter aufs Fahrrad&nbsp;— wer sich anschließen möchte, ist herzlich eingeladen.</p>
+                </div>
+
+                <div class="timeline-location">St. Peter in der Zollfeste Zons</div>
+
+                <div class="timeline-item">
+                    <p class="timeline-time">Ab 15.30 Uhr</p>
+                    <p class="timeline-title">Gemütliches Ankommen</p>
+                    <p class="timeline-note">Je nach Verkehrsmittel erwarten wir die Ankunft aller Gäste in kleinen Gruppen. Ab 15.30&nbsp;Uhr stehen auf jeden Fall die Türen offen und die Gläser bereit.</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="timeline-time">16 Uhr</p>
+                    <p class="timeline-title">Sektempfang, Snacks und Gratulation</p>
+                    <p class="timeline-note">Wer Braut und/oder Bräutigam drücken möchte, findet jetzt die perfekte Zeit dafür bei einem kühlen Getränk im Innenhof.</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="timeline-time">18 Uhr</p>
+                    <p class="timeline-title">Essen</p>
+                    <p class="timeline-note">Zu den obligatorischen und kurzen Reden gibt es zunächst eine Vorspeise. Danach wird das Buffet eröffnet, welches auch Speisen für unsere vegetarischen Gäste beinhaltet.</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="timeline-time">21 Uhr</p>
+                    <p class="timeline-title">Tanz und Trank</p>
+                    <p class="timeline-note">Ab 21&nbsp;Uhr öffnen wir die Türen für alle, die wir zum Essen leider nicht einladen konnten.</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="timeline-time">Zu Später Stunde</p>
+                    <p class="timeline-title">Kleine Stärkung</p>
+                    <p class="timeline-note">Wer so wild feiert wie wir, wird sicherlich auch später noch hungrig&nbsp;— damit ihr euch weiter auf der Tanzfläche auspowern könnt, gibt es zu später Stunde noch Snacks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DIE ORTE ========== -->
+    <section class="section section--orte" id="orte">
+        <div class="section-inner">
+            <div class="reveal">
+                <p class="section-label">Wo wir feiern</p>
+                <h2 class="section-heading">Die Orte</h2>
+            </div>
+            <div class="orte-grid stagger">
+                <div class="orte-card">
+                    <h3>Dorfkirche Urdenbach</h3>
+                    <p class="venue-address">Urdenbacher Dorfstraße 15, 40593 Düsseldorf</p>
+                    <p>Eingebettet in den malerischen Ortskern des Düsseldorfer Südens, blickt die Dorfkirche Urdenbach auf eine über 300-jährige Geschichte zurück. Die im Jahr 1693 fertiggestellte Barockkirche ist nach der Neanderkirche das zweitälteste evangelische Gotteshaus der Stadt. Mit ihrer charakteristischen Architektur, die an niederländische Vorbilder erinnert, und der klangvollen Schöler-Orgel von 1754 bietet sie einen gleichermaßen festlichen wie intimen Rahmen für kulturelle und kirchliche Begegnungen.</p>
+                    <p>Der Stadtteil Urdenbach selbst hat sich bis heute seinen besonderen Charme bewahrt: Geprägt durch historische Fachwerkhäuser und die direkte Nähe zum Naturschutzgebiet der Urdenbacher Kämpe, verbindet der Ort rheinische Tradition mit idyllischer Gelassenheit.</p>
+                    <p>Wer sich wundern mag, dass das Brautpaar als „Kölner im Herzen" in Düsseldorf heiratet, dem sei gesagt, dass historisch gesehen Urdenbach eher nach Köln orientiert war; der lokale Dialekt weist wohl bis heute mehr Ähnlichkeiten zum Kölschen als zum Düsseldorfer Platt auf. Also keine Sorge. Der kleine Ausflug endet alsbald mit einer Fahrt auf die richtige Rheinseite zum St. Peter ins idyllische Zons.</p>
+                </div>
+                <div class="orte-card">
+                    <h3>St. Peter in der Zollfeste Zons</h3>
+                    <p class="venue-address">Turmstraße 2 / Rheinstraße 10a, 41541 Stadt Zons</p>
+                    <p>Nur eine kurze Fährfahrt von Urdenbach entfernt, am gegenüberliegenden Rheinufer, empfängt die mittelalterliche Zollfeste Zons ihre Besucher mit einer fast vollständig erhaltenen Stadtbefestigung und zahlreichen denkmalgeschützten Gebäuden. So auch das um 1630 erbaute Denkmal „St. Peter", welches als Eckhaus von Turmstraße / Rheinstraße seit vielen Jahrhunderten ein gastronomisches Angebot in dem beliebten Ausflugsziel anbietet und inmitten der historischen Altstadt in bester Lage zu finden ist.</p>
+                    <p>Die historischen Mauern und Wachtürme, wie der nahegelegene Rheinturm, zeugen von der wehrhaften Geschichte des Ortes, der bereits im Jahr 1373 durch Erzbischof Friedrich von Saarwerden das Stadtrecht erhielt. Zons gilt heute als eines der bedeutendsten Denkmäler Nordrhein-Westfalens und verbindet lebendige Geschichte mit rheinischer Gastlichkeit.</p>
+                    <p>Beim Spaziergang durch die verwinkelten Gassen der Altstadt, vorbei an der historischen Windmühle und dem Schloss Friedestrom, tauchen Gäste in eine Welt ein, in der die Zeit stehen geblieben zu sein scheint.</p>
                 </div>
             </div>
         </div>
